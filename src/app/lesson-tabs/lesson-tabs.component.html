@@ -2,7 +2,7 @@
   <ul class="wbdv-lesson-tabs nav nav-tabs">
     <li *ngFor="let lesson of lessons"
         class="wbdv-lesson-item nav-item">
-      <a class="nav-link"
+      <a class="nav-link wbdv-link"
          [ngClass]="{'active': lesson.id == lessonId}"
          routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}">
         {{lesson.title}}
