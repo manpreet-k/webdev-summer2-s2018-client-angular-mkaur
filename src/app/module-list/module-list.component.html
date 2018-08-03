@@ -1,11 +1,12 @@
-<div class="container-fluid">
+<div class="container-fluid wbdv-bg">
   <div class="row wbdv-row">
     <div class="wbdv-top-border wbdv-padding-0 col-4">
       <ul>
-        <li class="list-group-item active">Modules</li>
+        <li class="list-group-item wbdv-module-lesson-div">Modules</li>
         <li [ngClass]="{'active': module.id == moduleId}" *ngFor="let module of modules"
-            class="list-group-item wbdv">
-          <a routerLink="/course/{{courseId}}/module/{{module.id}}">
+            class="list-group-item wbdv-active">
+          <a class="wbdv-link"
+             routerLink="/course/{{courseId}}/module/{{module.id}}">
             {{module.title}}</a>
         </li>
       </ul>
