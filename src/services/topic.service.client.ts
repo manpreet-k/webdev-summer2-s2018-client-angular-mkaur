@@ -2,7 +2,7 @@ export class TopicServiceClient {
 
   findTopicsForLesson(courseId, moduleId, lessonId) {
     return fetch
-    ('http://localhost:8080/api/course/'
+    ('https://webdev-summer2-2018-mkaur.herokuapp.com/api/course/'
       + courseId + '/module/' + moduleId + '/lesson/' + lessonId + '/topic')
       .then(response => response.json());
   }

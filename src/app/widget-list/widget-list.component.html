@@ -6,7 +6,7 @@
         *ngSwitchCase="'Heading'">
       <div class="form-row">
         <h3>
-          {{widget.name}} {{widget.id}}
+          {{widget.name}}
         </h3>
       </div>
       <div [ngSwitch]="widget.size">
@@ -20,7 +20,7 @@
         *ngSwitchCase="'Link'">
       <div class="form-row">
         <h3>
-          {{widget.name}} {{widget.id}}
+          {{widget.name}}
         </h3>
       </div>
       <a href="{{widget.href}}">{{widget.text}}</a>
@@ -30,7 +30,7 @@
         *ngSwitchCase="'List'">
       <div class="form-row">
         <h3>
-          {{widget.name}} {{widget.id}}
+          {{widget.name}}
         </h3>
       </div>
       <div [ngSwitch]="widget.listType">
@@ -62,7 +62,7 @@
         *ngSwitchCase="'Paragraph'">
       <div class="form-row">
         <h3>
-          {{widget.name}} {{widget.id}}
+          {{widget.name}}
         </h3>
       </div>
       <p>{{widget.text}}</p>
@@ -72,7 +72,7 @@
         *ngSwitchCase="'Image'">
       <div class="form-row">
         <h3>
-          {{widget.name}} {{widget.id}}
+          {{widget.name}}
         </h3>
       </div>
       <img src={{widget.src}} class="wbdv-image-viewer" alt="preview image"/>

@@ -2,7 +2,7 @@ export class LessonServiceClient {
 
   findLessonsForModule(courseId, moduleId) {
     return fetch
-    ('http://localhost:8080/api/course/'
+    ('https://webdev-summer2-2018-mkaur.herokuapp.com/api/course/'
       + courseId + '/module/' + moduleId + '/lesson')
       .then(response => response.json());
   }
