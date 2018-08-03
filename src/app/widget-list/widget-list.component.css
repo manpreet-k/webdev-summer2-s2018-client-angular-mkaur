@@ -2,3 +2,20 @@
   height: 300px;
   width: 300px;
 }
+
+.wbdv-widget-list-top{
+  text-align: right
+}
+
+.wbdv-link {
+  color: white;
+  display:block
+}
+
+.list-group{
+  background-color: #eef7fa;
+}
+
+.wbdv-margin-2{
+  margin: 1px;
+}
