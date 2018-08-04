@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../../services/user.service.client';
 import {Router} from '@angular/router';
+import {isEmpty} from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   username: String;
   password: String;
-  valid = false;
+  showError = false;
 
   constructor(private router: Router,
               private userService: UserServiceClient) { }
@@ -22,7 +23,13 @@ export class LoginComponent implements OnInit {
       password: password
     };
     this.userService.login(user)
-      .then(u => this.router.navigate(['profile']));
+      .then(u => {
+        if (u !== null) {
+          this.router.navigate(['profile']);
+        } else {
+          alert('Invalid credentials');
+        }
+      });
   }
 
   ngOnInit() {
