@@ -2,8 +2,10 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class UserServiceClient {
+  URL = 'http://localhost:3000/';
+
   login = (user) =>
-    fetch('http://localhost:3000/login', {
+    fetch(this.URL + 'login', {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -14,12 +16,12 @@ export class UserServiceClient {
       .then(response => response.json())
 
   currentUser = () =>
-    fetch('http://localhost:3000/currentUser', {
+    fetch(this.URL + 'currentUser', {
       credentials: 'include'
     }).then(response => response.json())
 
   register = (user) =>
-    fetch('http://localhost:3000/register', {
+    fetch(this.URL + 'register', {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -30,7 +32,7 @@ export class UserServiceClient {
       .then(response => response.json())
 
   findUserByUsername = (username) =>
-    fetch('http://localhost:3000/user/' + username + '/username', {
+    fetch(this.URL + 'api/username/' + username, {
       method: 'get',
       credentials: 'include',
       headers: {
