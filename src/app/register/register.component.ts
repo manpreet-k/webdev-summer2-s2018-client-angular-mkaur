@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UserServiceClient} from '../../services/user.service.client';
+import {UserServiceClient} from '../services/user.service.client';
 import {Router} from '@angular/router';
 
 @Component({
@@ -28,21 +28,25 @@ export class RegisterComponent implements OnInit {
     } else {
       this.userService.findUserByUsername(username)
         .then(existingUser => {
-          if (existingUser == null) {
-            this.userService.register(user)
-              .then(u => {
-                if (u !== null) {
-                  this.router.navigate(['profile']);
-                } else {
-                  alert('Intenal server error');
-                }
-              });
-          } else {
-            alert('Username already exists');
-          }
+          this.validateUsername(user, existingUser);
         });
     }
-  };
+  }
+
+  validateUsername = (user, existingUser) => {
+    if (existingUser == null) {
+      this.userService.register(user)
+        .then(u => {
+          if (u !== null) {
+            this.router.navigate(['profile']);
+          } else {
+            alert('Internal server error');
+          }
+        });
+    } else {
+      alert('Username already exists');
+    }
+  }
 
 
   ngOnInit() {

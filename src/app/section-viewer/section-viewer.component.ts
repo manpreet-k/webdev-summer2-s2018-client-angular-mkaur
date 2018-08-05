@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SectionServiceClient} from '../../services/section.service.client';
-import {CourseServiceClient} from '../../services/course.service.client';
+import {SectionServiceClient} from '../services/section.service.client';
+import {CourseServiceClient} from '../services/course.service.client';
 
 @Component({
   selector: 'app-section-viewer',
