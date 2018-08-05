@@ -65,4 +65,13 @@ export class UserServiceClient {
     });
   }
 
+  logout = () => {
+    return fetch(this.URL + 'api/logout', {
+      method: 'post',
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      },
+    });
+  }
 }
