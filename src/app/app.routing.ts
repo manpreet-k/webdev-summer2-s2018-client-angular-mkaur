@@ -6,6 +6,7 @@ import {RegisterComponent} from './register/register.component';
 import {ProfileComponent} from './profile/profile.component';
 import {AdminComponent} from './admin/admin.component';
 import {SectionViewerComponent} from './section-viewer/section-viewer.component';
+import {SectionListComponent} from './section-list/section-list.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'admin', component: AdminComponent},
-  {path: 'admin/course/:courseId/section', component: AdminComponent},
+  {path: 'course/:courseId/section', component: AdminComponent},
+  {path: 'course/:courseId/enroll', component: SectionListComponent},
   {path: 'course/:courseId', component: CourseEditorComponent},
   {path: 'course/:courseId/module/:moduleId', component: CourseEditorComponent},
   {path: 'course/:courseId/module/:moduleId/lesson/:lessonId', component: CourseEditorComponent},
