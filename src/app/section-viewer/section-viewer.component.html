@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Section Name</th>
+      <th>Maximum Capacity</th>
+      <th>Remaining</th>
+      <th>&nbsp;</th>
+    </tr>
+    <tr>
+      <td>
+        &nbsp;
+      </td>
+      <td>
+        <input [(ngModel)]="sectionName"
+               class="form-control"
+               placeholder="Section Name"/>
+      </td>
+      <td>
+        <input [(ngModel)]="maxCap"
+               class="form-control"
+               placeholder="Maximum Capacity"/>
+      </td>
+      <td>
+        <label class="form-control"
+               placeholder="Last Name">
+          0
+        </label>
+      </td>
+      <td>
+        <span class="float-right wbdv-float-right">
+							<i class="fa-2x fa fa-plus" (click)="createSection()"></i>
+          &nbsp;
+          &nbsp;
+							<i class="fa-2x fa fa-check" (click)="updateSection(sectionName, maxCap)"></i>
+        </span>
+      </td>
+    </tr>
+    <tbody>
+    <tr *ngFor="let section of sections">
+      <td>{{course.title}}</td>
+      <td>{{section.title}}</td>
+      <td>{{section.maxCap}}</td>
+      <td>{{section.rem}}</td>
+      <td>
+        <span>
+          <i id="wbdv-remove" class="fa-1x fa fa-times" (click)="deleteSection(section)"></i>
+          &nbsp;
+          &nbsp;
+          <i id="wbdv-edit" class="fa-1x fa fa-pencil" (click)="editSection(section)"></i>
+        </span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
