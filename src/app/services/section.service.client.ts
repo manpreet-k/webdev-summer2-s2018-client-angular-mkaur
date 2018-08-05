@@ -11,6 +11,12 @@ export class SectionServiceClient {
       credentials: 'include'
     })
 
+  unenroll = sectionId =>
+    fetch(this.URL + 'api/section/' + sectionId + '/unenroll', {
+      method: 'delete',
+      credentials: 'include'
+    })
+
   findAllSections = () =>
     fetch(this.URL + 'api/section')
       .then(response => response.json());
@@ -50,4 +56,12 @@ export class SectionServiceClient {
       credentials: 'include',
     });
   }
+
+  findSectionsForStudent() {
+    return fetch(this.URL + 'api/student/section', {
+      credentials: 'include'
+    })
+      .then(response => response.json());
+  }
+
 }
