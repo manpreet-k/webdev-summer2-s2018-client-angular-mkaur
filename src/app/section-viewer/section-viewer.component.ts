@@ -50,7 +50,7 @@ export class SectionViewerComponent implements OnInit {
 
   updateSection(newSectionName, newMaxCap) {
     if (newSectionName === '') {
-      newSectionName = this.course.title + '_section_' + (this.sections.length + 1).toString();
+      newSectionName = this.course.title + ' section ' + (this.sections.length + 1).toString();
     }
     if (newMaxCap === '') {
       newMaxCap = this.DEFAULT_MAX_CAP;
@@ -72,7 +72,7 @@ export class SectionViewerComponent implements OnInit {
 
   createSection() {
     if (this.sectionName === '') {
-      this.sectionName = this.course.title + '_section_' + (this.sections.length + 1).toString();
+      this.sectionName = this.course.title + ' section ' + (this.sections.length + 1).toString();
     }
     if (this.maxCap === '') {
       this.maxCap = this.DEFAULT_MAX_CAP;
