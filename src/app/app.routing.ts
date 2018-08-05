@@ -17,8 +17,8 @@ const appRoutes: Routes = [
   {path: 'admin/course/:courseId/section', component: AdminComponent},
   {path: 'course/:courseId', component: CourseEditorComponent},
   {path: 'course/:courseId/module/:moduleId', component: CourseEditorComponent},
-  {path: 'course/:courseId/module/:moduleId/lesson/:sectionId', component: CourseEditorComponent},
-  {path: 'course/:courseId/module/:moduleId/lesson/:sectionId/topic/:topicId', component: CourseEditorComponent},
+  {path: 'course/:courseId/module/:moduleId/lesson/:lessonId', component: CourseEditorComponent},
+  {path: 'course/:courseId/module/:moduleId/lesson/:lessonId/topic/:topicId', component: CourseEditorComponent},
   {path: '**', component: WhiteBoardComponent},
 ];
 export const routing = RouterModule.forRoot(appRoutes);
