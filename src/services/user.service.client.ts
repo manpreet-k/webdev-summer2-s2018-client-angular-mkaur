@@ -42,4 +42,27 @@ export class UserServiceClient {
       .then(response => response.json())
 
 
+  profile = () => {
+    return fetch(this.URL + 'profile',
+      {
+        method: 'post',
+        credentials: 'include',
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(response => response.json());
+  }
+
+  update = (user) => {
+    return fetch(this.URL + 'api/user', {
+      method: 'put',
+      body: JSON.stringify(user),
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      },
+    });
+  }
+
 }
