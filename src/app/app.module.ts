@@ -23,6 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { SectionViewerComponent } from './section-viewer/section-viewer.component';
 import {SectionServiceClient} from './services/section.service.client';
+import { SectionListComponent } from './section-list/section-list.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {SectionServiceClient} from './services/section.service.client';
     RegisterComponent,
     ProfileComponent,
     AdminComponent,
-    SectionViewerComponent
+    SectionViewerComponent,
+    SectionListComponent
   ],
   imports: [
     BrowserModule,
