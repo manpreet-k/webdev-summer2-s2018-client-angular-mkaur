@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Section Name</th>
+      <th>Maximum Capacity</th>
+      <th>Remaining</th>
+      <th>&nbsp;</th>
+    </tr>
+
+    <tbody>
+    <tr *ngFor="let section of sections">
+      <td>{{course.title}}</td>
+      <td>{{section.title}}</td>
+      <td>{{section.maxCap}}</td>
+      <td>{{section.rem}}</td>
+      <td>
+
+        <div *ngIf="section.rem > 0 ">
+          <button (click)="enroll(section)"
+                  class="btn btn-success">
+            <i class="fa-1x fa fa-plus"></i>
+          </button>
+        </div>
+        <div *ngIf="section.rem === 0">
+          <button class="btn btn-success" disabled>
+            <i class="fa-1x fa fa-plus"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
