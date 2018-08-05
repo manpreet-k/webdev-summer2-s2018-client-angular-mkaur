@@ -20,8 +20,8 @@ export class SectionViewerComponent implements OnInit {
       params => this.setParams(params));
   }
 
-  sectionName;
-  maxCap;
+  sectionName = '';
+  maxCap = 0;
   remCap;
   courseId;
   course;
@@ -37,6 +37,10 @@ export class SectionViewerComponent implements OnInit {
     this.courseId = courseId;
     this.service.findSectionsForCourse(courseId)
       .then(sections => this.sections = sections);
+    if (this.courseId !== undefined) {
+      this.courseService.findCourseById(this.courseId).then(course => this.course = course);
+      this.resetFields();
+    }
   }
 
   deleteSection(section) {
@@ -52,7 +56,7 @@ export class SectionViewerComponent implements OnInit {
     if (newSectionName === '') {
       newSectionName = this.course.title + ' section ' + (this.sections.length + 1).toString();
     }
-    if (newMaxCap === '') {
+    if (newMaxCap === 0) {
       newMaxCap = this.DEFAULT_MAX_CAP;
     }
     const newRemCap = (newMaxCap - this.selectedSection.maxCap) + parseInt(this.selectedSection.rem, 10);
@@ -74,7 +78,7 @@ export class SectionViewerComponent implements OnInit {
     if (this.sectionName === '') {
       this.sectionName = this.course.title + ' section ' + (this.sections.length + 1).toString();
     }
-    if (this.maxCap === '') {
+    if (this.maxCap === 0) {
       this.maxCap = this.DEFAULT_MAX_CAP;
     }
 
@@ -101,14 +105,11 @@ export class SectionViewerComponent implements OnInit {
   }
   resetFields() {
     this.sectionName = '';
-    this.maxCap = '';
-    this.remCap = '';
+    this.maxCap = 0;
+    this.remCap = 0;
   }
 
   ngOnInit() {
-    if (this.courseId !== undefined) {
-      this.courseService.findCourseById(this.courseId).then(course => this.course = course);
-    }
   }
 
 }
