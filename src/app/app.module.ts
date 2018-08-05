@@ -19,6 +19,7 @@ import {WidgetServiceClient} from '../services/widget.service.client';
 import {LoginComponent} from './login/login.component';
 import {UserServiceClient} from '../services/user.service.client';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RegisterComponent } from './register/register.component';
     TopicPillsComponent,
     WidgetListComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
