@@ -1,12 +1,13 @@
 <div class="container-fluid">
-  <h1>Profile</h1>
+  <div class="row wbdv-margin-padding">
+  <h1 class="col-9">Profile</h1>
+  <a class="col-1" *ngIf="isadmin === '1';" routerLink="/admin">Admin Page</a>
+  <a class="col-1" routerLink="/home">Home</a>
+  <a class="col-1" routerLink="/logout">Logout</a>
+  </div>
   <div class="row">
     <div class="col-6">
       <h3>Personal Information</h3>
-      <div class="form-group row">
-        <a routerLink="/home">Courses</a>
-      </div>
-
       <div class="form-group row">
         <div class="col-sm-10">
           <label for="username">
@@ -15,7 +16,7 @@
         </div>
         <div class="col-sm-10">
           <input [(ngModel)]="username"
-                 disabled 
+                 disabled
                  class="form-control"
                  id="username"
                  placeholder="Alice">
@@ -52,6 +53,20 @@
 
       <div class="form-group row">
         <div class="col-sm-10">
+          <label for="address">
+            Address
+          </label>
+        </div>
+        <div class="col-sm-10">
+          <input [(ngModel)]="address"
+                 class="form-control"
+                 id="address"
+                 placeholder="Address">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-10">
           <label for="phone"> Phone </label>
         </div>
         <div class="col-sm-10">
@@ -80,35 +95,32 @@
         <div class="col-sm-10">
           <button (click)="update()"
                   id="updateBtn"
-                  class="btn btn-success btn-block">
+                  class="btn btn-info btn-block">
             Update
-          </button>
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-sm-10">
-          <button (click)="logout()"
-                  class="btn btn-danger btn-block">
-            Logout
           </button>
         </div>
       </div>
     </div>
     <div class="col-6">
       <h3>Enrollment Details</h3>
-      <table class="table-bordered">
+      <table class="table table-bordered">
+        <tr>
+          <th>Course Name</th>
+          <th>Section Name</th>
+          <th>Remaining Capacity</th>
+          <th>&nbsp;</th>
+        </tr>
         <tr *ngFor="let section of sections">
-          <td>{{section.courseTitle}}</td>
+          <td><a routerLink="/course/{{section.courseId}}">{{section.courseTitle}}</a></td>
           <td>{{section.title}}</td>
-          <td>({{section.rem}})</td>
+          <td>{{section.rem}}</td>
           <td>
-            <button (click)="unenroll(section)">
-              Unregister
+            <button class="btn btn-danger" (click)="unenroll(section)">
+              Drop
             </button>
           </td>
         </tr>
       </table>
-      <a class="btn btn-outline-primary" *ngIf="username === 'admin';" routerLink="/admin">User Admin</a>
     </div>
   </div>
 </div>

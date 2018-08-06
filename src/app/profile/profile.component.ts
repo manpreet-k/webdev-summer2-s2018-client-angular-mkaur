@@ -27,6 +27,8 @@ export class ProfileComponent implements OnInit {
   sections = [];
   courses = [];
   student_sections = [];
+  address;
+  isadmin;
 
   update() {
     const user = {
@@ -90,6 +92,8 @@ export class ProfileComponent implements OnInit {
         this.lastName = user.lastName;
         this.email = user.email;
         this.phone = user.phone;
+        this.address = user.address;
+        this.isadmin = user.isadmin;
       });
 
     this.sectionService
