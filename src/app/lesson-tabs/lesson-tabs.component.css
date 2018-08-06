@@ -1,0 +1,19 @@
+.wbdv-lesson-tabs{
+  padding: 5px;
+  background-color: #004d99;
+  color: white;
+}
+
+/*.wbdv-lesson-item{*/
+  /*border: 1px solid #FFF;*/
+/*}*/
+
+.wbdv-link {
+  color: white;
+  display:block
+}
+
+.nav-pills li {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}

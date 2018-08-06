@@ -1,0 +1,53 @@
+
+
+.wbdv-module-list{
+  padding: 5px;
+}
+
+.wbdv-module-list-item{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.wbdv-link {
+  color: black;
+  display:block
+}
+
+.wbdv-card{
+  width: 18rem
+}
+
+.wbdv-module-lesson-div{
+  color: white;
+  background-color: #004d99;
+}
+
+.wbdv-bg{
+  background-color: #eef7fa;
+  color: #004d99;
+}
+
+.wbdv-padding-0{
+  padding-right:0;
+  padding-left:0;
+}
+
+.wbdv-row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.wbdv-padding-5{
+  padding: 5px;
+}
+
+.wbdv-margin-5{
+  margin: 5px;
+}
+
+.active.wbdv-active {
+  background-color: #faf1ee;
+  border-color: #faf1ee;
+}
+

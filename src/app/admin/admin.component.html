@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <h1>Admin</h1>
+  <div class="wbdv-margin-5">
+    <a routerLink="/home">
+      Home
+    </a>
+    <a class="float-right" routerLink="/profile">
+     Profile
+    </a>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <ul class="list-group">
+        <li class="list-group-item active">
+          Courses
+        </li>
+        <li (click)="selectCourse(course.id)"
+            class="list-group-item webdev"
+            [ngClass]="{'active': course.id === selectedCourseId}"
+            *ngFor="let course of courses">
+          <a class="wbdv-link"
+             routerLink="/course/{{course.id}}/section">
+            {{course.title}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-8">
+      <app-section-viewer></app-section-viewer>
+    </div>
+  </div>
+</div>

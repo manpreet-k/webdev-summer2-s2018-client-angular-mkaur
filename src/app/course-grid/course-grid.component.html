@@ -1,0 +1,23 @@
+<h2>Available Courses</h2>
+<div class="card-deck">
+  <div *ngFor="let course of courses" class="col-sm-3">
+    <div class="card wbdv-card">
+      <div class="card-body">
+        <img class="card-img-top"
+             src="https://picsum.photos/600/200"/>
+        <h5 class="card-title">
+          {{course.title}}
+        </h5>
+        <a routerLink="/course/{{course.id}}">Details...</a>
+          <span *ngIf="loggedInUserId !== ''"
+                class="float-right">
+          <a routerLink="/course/{{course.id}}/enroll">Enroll</a>
+        </span>
+          <span *ngIf="loggedInUserId === ''"
+                class="float-right">
+          <a routerLink="/login">Enroll</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

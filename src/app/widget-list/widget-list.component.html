@@ -1,0 +1,83 @@
+<div *ngFor="let widget of widgets">
+  <div [ngSwitch]="widget.classname">
+    <ul class="list-group">
+
+      <li class="list-group-item wbdv-margin-2"
+        *ngSwitchCase="'Heading'">
+      <div class="form-row">
+        <h3>
+          {{widget.name}}
+        </h3>
+      </div>
+      <div [ngSwitch]="widget.size">
+        <h1 *ngSwitchCase="'1'">{{widget.text}}</h1>
+        <h2 *ngSwitchCase="'2'">{{widget.text}}</h2>
+        <h3 *ngSwitchCase="'3'">{{widget.text}}</h3>
+      </div>
+    </li>
+
+    <li class="list-group-item wbdv-margin-2"
+        *ngSwitchCase="'Link'">
+      <div class="form-row">
+        <h3>
+          {{widget.name}}
+        </h3>
+      </div>
+      <a href="{{widget.href}}">{{widget.text}}</a>
+    </li>
+
+    <li class="list-group-item wbdv-margin-2"
+        *ngSwitchCase="'List'">
+      <div class="form-row">
+        <h3>
+          {{widget.name}}
+        </h3>
+      </div>
+      <div [ngSwitch]="widget.listType">
+        <div *ngSwitchCase="'UNORDERED'">
+          <ul>
+            <li *ngFor="let item of widget.listItems.split('\n')">
+              {{item}}
+            </li>
+          </ul>
+        </div>
+        <div *ngSwitchCase="'ORDERED'">
+          <ol>
+            <li *ngFor="let item of widget.listItems.split('\n')">
+              {{item}}
+            </li>
+          </ol>
+        </div>
+        <div *ngSwitchCase=null>
+          <ul>
+            <li *ngFor="let item of widget.listItems.split('\n')">
+              {{item}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+
+    <li class="list-group-item wbdv-margin-2"
+        *ngSwitchCase="'Paragraph'">
+      <div class="form-row">
+        <h3>
+          {{widget.name}}
+        </h3>
+      </div>
+      <p>{{widget.text}}</p>
+    </li>
+
+    <li class="list-group-item wbdv-margin-2"
+        *ngSwitchCase="'Image'">
+      <div class="form-row">
+        <h3>
+          {{widget.name}}
+        </h3>
+      </div>
+      <img src={{widget.src}} class="wbdv-image-viewer" alt="preview image"/>
+    </li>
+
+    </ul>
+  </div>
+</div>
