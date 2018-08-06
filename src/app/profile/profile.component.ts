@@ -63,6 +63,8 @@ export class ProfileComponent implements OnInit {
 
   getCoursesForStudent() {
     if (this.student_sections !== undefined) {
+      this.sections = [];
+      this.courses = [];
       let i;
       const size = this.student_sections.length;
       for (i = 0; i < size; i++) {
