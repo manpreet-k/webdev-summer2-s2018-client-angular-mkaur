@@ -35,9 +35,9 @@ export class SectionViewerComponent implements OnInit {
 
   loadSections(courseId) {
     this.courseId = courseId;
-    this.service.findSectionsForCourse(courseId)
-      .then(sections => this.sections = sections);
     if (this.courseId !== undefined) {
+      this.service.findSectionsForCourse(courseId)
+        .then(sections => this.sections = sections);
       this.courseService.findCourseById(this.courseId).then(course => this.course = course);
       this.resetFields();
     }
@@ -61,6 +61,7 @@ export class SectionViewerComponent implements OnInit {
     }
     const newRemCap = (newMaxCap - this.selectedSection.maxCap) + parseInt(this.selectedSection.rem, 10);
     const newSection = {
+      courseId: this.courseId,
       id: this.selectedSection._id,
       title: newSectionName,
       maxCap: newMaxCap,

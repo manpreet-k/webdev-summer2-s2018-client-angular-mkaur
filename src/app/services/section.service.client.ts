@@ -36,8 +36,9 @@ export class SectionServiceClient {
     })
       .then(response => response.json())
 
+
   updateSection = (section) => {
-    return fetch(this.URL + 'api/section' + '/' + section._id, {
+    return fetch(this.URL + 'api/section' + '/' + section.id, {
       method: 'put',
       body: JSON.stringify(section),
       credentials: 'include',

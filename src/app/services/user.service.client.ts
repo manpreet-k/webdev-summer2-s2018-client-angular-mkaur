@@ -5,7 +5,7 @@ export class UserServiceClient {
   URL = 'http://localhost:3000/';
 
   login = (user) =>
-    fetch(this.URL + 'login', {
+    fetch(this.URL + 'api/login', {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -16,12 +16,12 @@ export class UserServiceClient {
       .then(response => response.json())
 
   currentUser = () =>
-    fetch(this.URL + 'currentUser', {
+    fetch(this.URL + 'api/currentUser', {
       credentials: 'include'
     }).then(response => response.json())
 
   register = (user) =>
-    fetch(this.URL + 'register', {
+    fetch(this.URL + 'api/register', {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -43,9 +43,9 @@ export class UserServiceClient {
 
 
   profile = () => {
-    return fetch(this.URL + 'profile',
+    return fetch(this.URL + 'api/profile',
       {
-        method: 'post',
+        method: 'get',
         credentials: 'include',
         headers: {
           'content-type': 'application/json'
@@ -55,7 +55,7 @@ export class UserServiceClient {
   }
 
   update = (user) => {
-    return fetch(this.URL + 'api/user', {
+    return fetch(this.URL + 'api/profile', {
       method: 'put',
       body: JSON.stringify(user),
       credentials: 'include',

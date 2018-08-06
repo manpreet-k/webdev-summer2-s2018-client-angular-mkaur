@@ -34,7 +34,10 @@ export class SectionListComponent implements OnInit {
     this.service
       .enroll(section._id)
       .then(() => {
-        this.router.navigate(['profile']);
+        this
+          .service
+          .findSectionsForCourse(section.courseId)
+          .then(sections => this.sections = sections);
       });
   }
 
