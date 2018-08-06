@@ -9,8 +9,13 @@
           {{course.title}}
         </h5>
         <a routerLink="/course/{{course.id}}">Details...</a>
-        <span class="float-right">
+          <span *ngIf="loggedInUserId !== ''"
+                class="float-right">
           <a routerLink="/course/{{course.id}}/enroll">Enroll</a>
+        </span>
+          <span *ngIf="loggedInUserId === ''"
+                class="float-right">
+          <a routerLink="/login">Enroll</a>
         </span>
       </div>
     </div>
