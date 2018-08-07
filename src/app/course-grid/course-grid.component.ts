@@ -16,7 +16,9 @@ export class CourseGridComponent implements OnInit {
               private userService: UserServiceClient) {
     userService.currentUser()
       .then(response => {
-        this.loggedInUserId = response._id;
+        if (response !== null) {
+          this.loggedInUserId = response._id;
+        }
       });
   }
 
