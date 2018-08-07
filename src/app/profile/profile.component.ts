@@ -39,7 +39,6 @@ export class ProfileComponent implements OnInit {
       phone: this.phone,
     };
     this.service.update(user).then(() => {
-      alert(user);
     });
   }
 
