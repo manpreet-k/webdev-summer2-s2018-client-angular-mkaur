@@ -1,22 +1,23 @@
 <div class="container-fluid">
   <div class="row wbdv-margin-padding">
-    <h1 class="col-9">Profile</h1>
-    <button class="col-1 btn btn-link"
+    <h1 class="col-11">Profile</h1>
+    <div class="col-1">
+    <button class="btn btn-link"
        role="link"
        *ngIf="isadmin === '1';"
        routerLink="/admin">
       Admin Page
     </button>
-    <button class="col-1 btn btn-link"
-            role="link"
+    <button class="btn btn-info"
             routerLink="/home">
-      Home
+      <i class="fa fa-home"></i>
     </button>
-    <button class="col-1 btn btn-link"
-            role="link"
+    &nbsp;
+    <button class="btn btn-danger"
             (click)="logout()">
-      Logout
+      <i class="fa fa-power-off"></i>
     </button>
+    </div>
   </div>
   <div class="row">
     <div class="col-6">
