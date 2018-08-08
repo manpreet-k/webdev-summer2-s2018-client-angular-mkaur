@@ -2,3 +2,11 @@
   margin: 5px;
   padding: 5px;
 }
+
+.wbdv-msg_success {
+  color: green;
+  background-color: #DFF2BF;
+  margin: 5px 0px;
+  padding: 5px;
+  border-radius: 5px;
+}
