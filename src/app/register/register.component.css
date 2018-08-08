@@ -1,0 +1,13 @@
+.wbdv-msg_error {
+  color: red;
+  background-color: #FFD2D2;
+  margin: 5px 0px;
+  padding: 5px;
+  border-radius: 5px;
+  display:none;
+}
+
+.wbdv-msg_error i {
+  margin: 5px 5px;
+  vertical-align: middle;
+}
