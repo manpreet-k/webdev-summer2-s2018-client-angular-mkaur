@@ -46,15 +46,36 @@ export class SectionListComponent implements OnInit {
           this.logout();
         } else {
           this.service
-            .enroll(user._id, section._id)
-            .then(() => {
-              this
-                .service
-                .findSectionsForCourse(section.courseId)
-                .then(sections => this.sections = sections);
+            .findSectionsForStudent(user._id)
+            .then(student_sections => {
+              if (this.isStudentAlreadyRegistered(student_sections, section)) {
+                alert('User is registered for the section!');
+              } else {
+                this.service
+                  .enroll(user._id, section._id)
+                  .then(() => {
+                    this
+                      .service
+                      .findSectionsForCourse(section.courseId)
+                      .then(sections => this.sections = sections);
+                  });
+              }
             });
         }
       });
+  }
+
+  isStudentAlreadyRegistered(student_sections, selectedSection) {
+    if (student_sections !== undefined) {
+      let i;
+      const size = student_sections.length;
+      for (i = 0; i < size; i++) {
+        const currentSection = student_sections[i].section;
+        if(currentSection._id === selectedSection._id){
+          return true;
+        }
+      }
+    }
   }
 
   ngOnInit() {
