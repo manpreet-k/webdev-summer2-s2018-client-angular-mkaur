@@ -3,9 +3,9 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class SectionServiceClient {
 
-  // URL = 'http://localhost:3000/';
-   URL = 'https://wbdv-smr2-server-node-mkaur.herokuapp.com/';
-
+  URL = 'http://localhost:3000/';
+   // URL = 'https://wbdv-smr2-server-node-mkaur.herokuapp.com/';
+gi
   enroll = (studentId, sectionId) =>
     fetch(this.URL + 'api/student/' + studentId + '/section/' + sectionId, {
       method: 'post',
