@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   constructor(private service: UserServiceClient,
               private sectionService: SectionServiceClient,
               private courseService: CourseServiceClient,
+              private userService: UserServiceClient,
               private router: Router) {
   }
 
@@ -37,6 +38,7 @@ export class ProfileComponent implements OnInit {
       lastName: this.lastName,
       email: this.email,
       phone: this.phone,
+      address: this.address
     };
     this.service.update(user).then(() => {
     });
@@ -50,14 +52,17 @@ export class ProfileComponent implements OnInit {
   }
 
   unenroll(section) {
-    this.sectionService
-      .unenroll(section._id)
-      .then(() => {
+    this.userService.currentUser()
+      .then(user => {
         this.sectionService
-          .findSectionsForStudent()
-          .then(sections => {
-            this.student_sections = sections;
-            this.getCoursesForStudent();
+          .unenroll(user._id, section._id)
+          .then(() => {
+            this.sectionService
+              .findSectionsForStudent(user._id)
+              .then(sections => {
+                this.student_sections = sections;
+                this.getCoursesForStudent();
+              });
           });
       });
   }
@@ -93,13 +98,13 @@ export class ProfileComponent implements OnInit {
         this.phone = user.phone;
         this.address = user.address;
         this.isadmin = user.isadmin;
-      });
 
-    this.sectionService
-      .findSectionsForStudent()
-      .then(sections => {
-        this.student_sections = sections;
-        this.getCoursesForStudent();
+        this.sectionService
+          .findSectionsForStudent(user._id)
+          .then(sections => {
+            this.student_sections = sections;
+            this.getCoursesForStudent();
+          });
       });
   }
 }
