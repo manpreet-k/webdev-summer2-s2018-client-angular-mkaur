@@ -1,9 +1,17 @@
 <div class="container-fluid wbdv-bg">
   <div class="row wbdv-margin-padding">
-    <h2 class="col-11">Details of {{course.title}}</h2>
-    <a class= "col-1" routerLink="/home">
-      Home
-    </a>
+    <h2 class="col-10">Details of {{course.title}}</h2>
+    <div class="col-2">
+      <button class="btn btn-info"
+              routerLink="/home">
+        <i class="fa fa-home"></i>
+      </button>
+      &nbsp;
+      <button class="btn btn-danger"
+              (click)="logout()">
+        <i class="fa fa-power-off"></i>
+      </button>
+    </div>
   </div>
   <div>
     <app-module-list></app-module-list>

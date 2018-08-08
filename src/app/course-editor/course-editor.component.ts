@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CourseServiceClient} from '../services/course.service.client';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Course} from '../models/course.model.client';
+import {UserServiceClient} from '../services/user.service.client';
 
 @Component({
   selector: 'app-course-editor',
@@ -11,6 +12,8 @@ import {Course} from '../models/course.model.client';
 export class CourseEditorComponent implements OnInit {
   widgets = [];
   constructor(private service: CourseServiceClient,
+              private userService: UserServiceClient,
+              private router: Router,
               private route: ActivatedRoute) {
     this.route.params.subscribe(params => this.findCourseById(params['courseId']));
   }
@@ -19,6 +22,13 @@ export class CourseEditorComponent implements OnInit {
   findCourseById(courseId) {
     this.service.findCourseById(courseId)
       .then(course => this.course = course);
+  }
+
+  logout() {
+    this.userService
+      .logout()
+      .then(() =>
+        this.router.navigate(['login']));
   }
 
   ngOnInit() {
