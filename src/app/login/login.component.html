@@ -1,8 +1,9 @@
 
 <div class="container-fluid">
   <h1>Sign In</h1>
-  <div hidden={{showError}}>
-    Invalid credentials
+  <div class= "wbdv-msg_Error"
+       *ngIf="showError">
+    {{errorText}}
   </div>
     <div class="form-group row">
       <label for="username"

@@ -30,6 +30,8 @@ export class ProfileComponent implements OnInit {
   student_sections = [];
   address;
   isadmin;
+  showMsg = false;
+
 
   update() {
     const user = {
@@ -40,7 +42,16 @@ export class ProfileComponent implements OnInit {
       phone: this.phone,
       address: this.address
     };
-    this.service.update(user).then(() => {
+    this.service.update(user).then((res) => {
+      if (res === null) {
+        alert('Session expired');
+        this.logout();
+      } else {
+        this.showMsg = true;
+        setTimeout(function() {
+          this.showMsg = false;
+        }, 5000);
+      }
     });
   }
 
@@ -54,16 +65,21 @@ export class ProfileComponent implements OnInit {
   unenroll(section) {
     this.userService.currentUser()
       .then(user => {
-        this.sectionService
-          .unenroll(user._id, section._id)
-          .then(() => {
-            this.sectionService
-              .findSectionsForStudent(user._id)
-              .then(sections => {
-                this.student_sections = sections;
-                this.getCoursesForStudent();
-              });
-          });
+        if (user === null) {
+          alert('Session expired');
+          this.logout();
+        } else {
+          this.sectionService
+            .unenroll(user._id, section._id)
+            .then(() => {
+              this.sectionService
+                .findSectionsForStudent(user._id)
+                .then(sections => {
+                  this.student_sections = sections;
+                  this.getCoursesForStudent();
+                });
+            });
+        }
       });
   }
 

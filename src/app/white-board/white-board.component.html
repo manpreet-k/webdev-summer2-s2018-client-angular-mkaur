@@ -3,12 +3,16 @@
     <h1 class="col-9">
       White Board
     </h1>
-    <button class="col-1 btn-sm btn-outline-secondary"
+    <button *ngIf="loggedInUserId === ''" class="col-1 btn-sm btn-outline-secondary"
        routerLink="/login">Login</button>
+    <button *ngIf="loggedInUserId !== ''" class="col-1 btn-sm btn-outline-secondary"
+            routerLink="/profile">Profile</button>
     &nbsp;
     &nbsp;
-    <button class="col-1 btn-sm btn-outline-secondary"
+    <button *ngIf="loggedInUserId === ''" class="col-1 btn-sm btn-outline-secondary"
        routerLink="/register">Register</button>
+    <button *ngIf = "loggedInUserId !== ''" class="col-1 btn-sm btn-outline-secondary"
+            (click)="logout()">Logout</button>
   </div>
 
   <app-course-grid></app-course-grid>

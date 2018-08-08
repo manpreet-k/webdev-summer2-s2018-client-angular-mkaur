@@ -23,7 +23,7 @@ export class SectionListComponent implements OnInit {
   sections = [];
   loadSections(courseId) {
     this.courseId = courseId;
-    if(this.courseId !== '') {
+    if (this.courseId !== '') {
       this
         .service
         .findSectionsForCourse(courseId)
@@ -31,17 +31,29 @@ export class SectionListComponent implements OnInit {
     }
   }
 
+  logout() {
+    this.userService
+      .logout()
+      .then(() =>
+        this.router.navigate(['login']));
+  }
+
   enroll(section) {
     this.userService.currentUser()
       .then(user => {
-        this.service
-          .enroll(user._id, section._id)
-          .then(() => {
-            this
-              .service
-              .findSectionsForCourse(section.courseId)
-              .then(sections => this.sections = sections);
-          });
+        if (user === null) {
+          alert('Session expired');
+          this.logout();
+        } else {
+          this.service
+            .enroll(user._id, section._id)
+            .then(() => {
+              this
+                .service
+                .findSectionsForCourse(section.courseId)
+                .then(sections => this.sections = sections);
+            });
+        }
       });
   }
 
