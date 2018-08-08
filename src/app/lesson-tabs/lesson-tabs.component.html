@@ -3,7 +3,7 @@
     <li *ngFor="let lesson of lessons"
         class="wbdv-lesson-item nav-item">
       <a class="nav-link wbdv-link"
-         [ngClass]="{'active': lesson.id == lessonId}"
+         [ngClass]="{'active wbdv-active': lesson.id == lessonId}"
          routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}">
         {{lesson.title}}
       </a>

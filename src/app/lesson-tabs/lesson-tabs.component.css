@@ -1,16 +1,16 @@
 .wbdv-lesson-tabs{
   padding: 5px;
-  background-color: #004d99;
+  /*background-color: #004d99;*/
   color: white;
 }
 
-/*.wbdv-lesson-item{*/
-  /*border: 1px solid #FFF;*/
-/*}*/
-
 .wbdv-link {
-  color: white;
+  /*color: white;*/
   display:block
+}
+
+.active.wbdv-active{
+  background-color: #007BFF
 }
 
 .nav-pills li {
