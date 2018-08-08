@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class UserServiceClient {
-  // URL = 'http://localhost:3000/';
-  URL = 'https://wbdv-smr2-server-node-mkaur.herokuapp.com/';
+  URL = 'http://localhost:3000/';
+  // URL = 'https://wbdv-smr2-server-node-mkaur.herokuapp.com/';
 
   login = (user) =>
     fetch(this.URL + 'api/login', {
@@ -63,7 +63,8 @@ export class UserServiceClient {
       headers: {
         'content-type': 'application/json'
       },
-    });
+    })
+      .then(response => response.json());
   }
 
   logout = () => {
