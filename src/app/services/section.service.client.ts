@@ -4,16 +4,16 @@ import {Injectable} from '@angular/core';
 export class SectionServiceClient {
 
   // URL = 'http://localhost:3000/';
-  URL = 'https://wbdv-smr2-server-node-mkaur.herokuapp.com/';
+   URL = 'https://wbdv-smr2-server-node-mkaur.herokuapp.com/';
 
-  enroll = sectionId =>
-    fetch(this.URL + 'api/section/' + sectionId + '/enroll', {
-      method: 'put',
+  enroll = (studentId, sectionId) =>
+    fetch(this.URL + 'api/student/' + studentId + '/section/' + sectionId, {
+      method: 'post',
       credentials: 'include'
     })
 
-  unenroll = sectionId =>
-    fetch(this.URL + 'api/section/' + sectionId + '/unenroll', {
+  unenroll = (studentId, sectionId) =>
+    fetch(this.URL + 'api/student/' + studentId + '/section/' + sectionId, {
       method: 'delete',
       credentials: 'include'
     })
@@ -59,8 +59,8 @@ export class SectionServiceClient {
     });
   }
 
-  findSectionsForStudent() {
-    return fetch(this.URL + 'api/student/section', {
+  findSectionsForStudent = studentId => {
+    return fetch(this.URL + 'api/student/' + studentId + '/section', {
       credentials: 'include'
     })
       .then(response => response.json());
