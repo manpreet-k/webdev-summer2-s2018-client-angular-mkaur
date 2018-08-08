@@ -13,6 +13,8 @@ export class RegisterComponent implements OnInit {
   password: String;
   verifypassword: String;
   valid = false;
+  showError = false;
+  errorText = '';
 
   constructor(private router: Router,
               private userService: UserServiceClient) {
@@ -24,7 +26,8 @@ export class RegisterComponent implements OnInit {
       password: password
     };
     if (password !== verifypassword) {
-      alert('Passwords do not match');
+      this.errorText = 'Passwords do not match';
+      this.showError = true;
     } else {
       this.userService.findUserByUsername(username)
         .then(existingUser => {
@@ -38,13 +41,17 @@ export class RegisterComponent implements OnInit {
       this.userService.register(user)
         .then(u => {
           if (u !== null) {
+            this.errorText = '';
+            this.showError = false;
             this.router.navigate(['profile']);
           } else {
-            alert('Internal server error');
+            this.errorText = 'Internal server error';
+            this.showError = true;
           }
         });
     } else {
-      alert('Username already exists');
+      this.errorText = 'Username already exists';
+      this.showError = true;
     }
   }
 
