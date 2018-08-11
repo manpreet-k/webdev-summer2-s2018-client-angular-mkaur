@@ -1,12 +1,27 @@
-<h2>Quizzes</h2>
+<div class="container-fluid">
+  <div class="row wbdv-margin-padding">
+    <h1 class="col-11">Quizzes</h1>
+    <div class="col-1">
+      <button class="btn btn-info"
+              routerLink="/home">
+        <i class="fa fa-home"></i>
+      </button>
+      &nbsp;
+      <button class="btn btn-danger"
+              (click)="logout()">
+        <i class="fa fa-power-off"></i>
+      </button>
+    </div>
+  </div>
 
-<ul class="list-group">
-  <li *ngFor="let quiz of quizzes"
-      class="list-group-item">
-    {{quiz.name}}
-    <a class="float-right btn btn-primary"
-       href="/quiz/{{quiz._id}}">
-      Take
-    </a>
-  </li>
-</ul>
+  <ul class="list-group">
+    <li *ngFor="let quiz of quizzes"
+        class="list-group-item">
+      {{quiz.name}}
+      <a class="float-right btn btn-success"
+         href="/quiz/{{quiz._id}}">
+        Take
+      </a>
+    </li>
+  </ul>
+</div>
