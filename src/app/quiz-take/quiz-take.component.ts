@@ -29,6 +29,14 @@ export class QuizTakeComponent implements OnInit {
       .findQuizById(quizId)
       .then(quiz => this.quiz = quiz);
   }
+
+  logout() {
+    this.userService
+      .logout()
+      .then(() =>
+        this.router.navigate(['login']));
+  }
+
   submit(submission) {
     this.userService.currentUser()
       .then(user => {
