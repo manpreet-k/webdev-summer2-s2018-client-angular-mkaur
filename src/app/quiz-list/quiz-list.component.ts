@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {QuizServiceClient} from '../services/quiz.service.client';
+import {UserServiceClient} from '../services/user.service.client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-quiz-list',
@@ -8,13 +10,32 @@ import {QuizServiceClient} from '../services/quiz.service.client';
 })
 export class QuizListComponent implements OnInit {
 
-  quizzes = []
+  quizzes = [];
+  loggedIn = false;
 
-  constructor(private service: QuizServiceClient) { }
+  constructor(private service: QuizServiceClient,
+              private userService: UserServiceClient,
+              private router: Router) { }
+
+  logout() {
+    this.userService
+      .logout()
+      .then(() =>
+        this.router.navigate(['login']));
+  }
 
   ngOnInit() {
     this.service.findAllQuizzes()
       .then(quizzes => this.quizzes = quizzes);
+
+    this.userService.currentUser()
+      .then(user => {
+        if (user === null) {
+          this.loggedIn = false;
+        } else {
+          this.loggedIn = true;
+        }
+      })
   }
 
 }

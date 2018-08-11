@@ -18,8 +18,12 @@
     <li *ngFor="let quiz of quizzes"
         class="list-group-item">
       {{quiz.name}}
-      <a class="float-right btn btn-success"
+      <a *ngIf="loggedIn" class="float-right btn btn-success"
          href="/quiz/{{quiz._id}}">
+        Take
+      </a>
+      <a *ngIf="!loggedIn" class="float-right btn btn-success"
+         href="/login">
         Take
       </a>
     </li>
