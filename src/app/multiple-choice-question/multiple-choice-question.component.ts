@@ -13,7 +13,7 @@ export class MultipleChoiceQuestionComponent implements OnInit {
   constructor() { }
 
   selected = choice => {
-    this.submission[this.question._id] = this.question.choices.indexOf(choice);
+    this.submission[this.question._id] = this.question.options.indexOf(choice);
   }
 
   ngOnInit() {
