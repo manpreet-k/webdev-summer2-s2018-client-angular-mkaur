@@ -24,6 +24,8 @@ import { AdminComponent } from './admin/admin.component';
 import { SectionViewerComponent } from './section-viewer/section-viewer.component';
 import {SectionServiceClient} from './services/section.service.client';
 import { SectionListComponent } from './section-list/section-list.component';
+import { QuizListComponent } from './quiz-list/quiz-list.component';
+import {QuizServiceClient} from './services/quiz.service.client';
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import { SectionListComponent } from './section-list/section-list.component';
     ProfileComponent,
     AdminComponent,
     SectionViewerComponent,
-    SectionListComponent
+    SectionListComponent,
+    QuizListComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { SectionListComponent } from './section-list/section-list.component';
     TopicServiceClient,
     WidgetServiceClient,
     UserServiceClient,
-    SectionServiceClient
+    SectionServiceClient,
+    QuizServiceClient
   ],
   bootstrap: [AppComponent]
 
