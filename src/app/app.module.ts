@@ -26,6 +26,11 @@ import {SectionServiceClient} from './services/section.service.client';
 import { SectionListComponent } from './section-list/section-list.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import {QuizServiceClient} from './services/quiz.service.client';
+import { QuizTakeComponent } from './quiz-take/quiz-take.component';
+import { FillBlanksQuestionComponent } from './fill-blanks-question/fill-blanks-question.component';
+import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
+import { TrueFalseComponent } from './true-false/true-false.component';
+import { EssayQuestionComponent } from './essay-question/essay-question.component';
 
 
 @NgModule({
@@ -44,7 +49,12 @@ import {QuizServiceClient} from './services/quiz.service.client';
     AdminComponent,
     SectionViewerComponent,
     SectionListComponent,
-    QuizListComponent
+    QuizListComponent,
+    QuizTakeComponent,
+    FillBlanksQuestionComponent,
+    MultipleChoiceQuestionComponent,
+    TrueFalseComponent,
+    EssayQuestionComponent
   ],
   imports: [
     BrowserModule,
