@@ -18,7 +18,7 @@
     <li *ngFor="let question of quiz.questions" class="list-group-item">
       <h4>
         {{question.title}}
-        <span class="float-right">{{question.points}}</span>
+        <!--<span class="float-right">{{question.points}}</span>-->
       </h4>
       <p>{{question.description}}</p>
       <div [ngSwitch]="question.type">
@@ -32,7 +32,8 @@
 
         <app-fill-blanks-question
           [question]="question"
-          [submission]="submission"
+          [makeReadOnly] = true
+          [answer] = answers[question._id]
           *ngSwitchCase="'fillin'">
         </app-fill-blanks-question>
 
@@ -52,17 +53,4 @@
       </div>
     </li>
   </ul>
-  &nbsp;
-  <div>
-    <button class="btn btn-primary"
-            routerLink="/quizzes">
-      Cancel
-    </button>
-    &nbsp;
-    <button class="btn btn-danger"
-            (click)="submit(submission)">
-      Submit
-    </button>
-  </div>
-
 </div>

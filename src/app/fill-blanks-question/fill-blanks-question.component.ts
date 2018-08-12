@@ -9,11 +9,14 @@ export class FillBlanksQuestionComponent implements OnInit {
 
   @Input() question;
   @Input() submission;
+  @Input() makeReadOnly;
+  @Input() answer;
 
   constructor() { }
 
   ngOnInit() {
-    this.submission[this.question._id] = {};
+    if (this.submission !== undefined) {
+      this.submission[this.question._id] = {};
+    }
   }
-
 }
