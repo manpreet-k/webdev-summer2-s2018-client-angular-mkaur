@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class QuizListComponent implements OnInit {
 
   quizzes = [];
-  loggedIn = false;
+  loggedInUsername = '';
   isAdmin = '0';
 
   constructor(private service: QuizServiceClient,
@@ -32,10 +32,10 @@ export class QuizListComponent implements OnInit {
     this.userService.currentUser()
       .then(user => {
         if (user === null) {
-          this.loggedIn = false;
+          this.loggedInUsername = '';
           this.isAdmin = '0';
         } else {
-          this.loggedIn = true;
+          this.loggedInUsername = user.username;
           this.isAdmin = user.isadmin;
         }
       });
