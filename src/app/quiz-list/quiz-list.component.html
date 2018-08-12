@@ -18,18 +18,26 @@
     <li *ngFor="let quiz of quizzes"
         class="list-group-item">
       {{quiz.name}}
-      <a *ngIf="loggedInUsername !== ''" class="float-right btn btn-success"
-         href="/quiz/{{quiz._id}}">
-        Take
-      </a>
-      <a *ngIf="loggedInUsername !== ''" class="float-right btn btn-info"
-         href="/quiz/{{quiz._id}}/submissions/{{loggedInUsername}}">
-        Submissions
-      </a>
-      <a *ngIf="loggedInUsername === ''" class="float-right btn btn-success"
-         href="/login">
-        Take
-      </a>
+
+      <div class="float-right">
+        <a *ngIf="loggedInUsername === ''"
+           class="btn btn-success"
+           href="/login">
+          Take
+        </a>
+        <a *ngIf="loggedInUsername !== ''"
+           class="btn btn-success"
+           href="/quiz/{{quiz._id}}">
+          Take
+        </a>
+        &nbsp;
+        <a *ngIf="loggedInUsername !== ''"
+           class="btn btn-dark"
+           href="/quiz/{{quiz._id}}/submissions/{{loggedInUsername}}">
+          Submissions
+        </a>
+
+      </div>
     </li>
   </ul>
 </div>
