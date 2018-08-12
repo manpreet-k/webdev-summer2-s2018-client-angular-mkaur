@@ -22,6 +22,10 @@
          href="/quiz/{{quiz._id}}">
         Take
       </a>
+      <a *ngIf="loggedIn && isAdmin === '1'" class="float-right btn btn-info"
+         href="/quiz/{{quiz._id}}/submissions">
+        Submissions
+      </a>
       <a *ngIf="!loggedIn" class="float-right btn btn-success"
          href="/login">
         Take

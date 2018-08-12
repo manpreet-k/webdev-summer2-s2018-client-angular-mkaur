@@ -12,6 +12,7 @@ export class QuizListComponent implements OnInit {
 
   quizzes = [];
   loggedIn = false;
+  isAdmin = '0';
 
   constructor(private service: QuizServiceClient,
               private userService: UserServiceClient,
@@ -32,10 +33,12 @@ export class QuizListComponent implements OnInit {
       .then(user => {
         if (user === null) {
           this.loggedIn = false;
+          this.isAdmin = '0';
         } else {
           this.loggedIn = true;
+          this.isAdmin = user.isadmin;
         }
-      })
+      });
   }
 
 }
