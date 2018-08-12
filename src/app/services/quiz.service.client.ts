@@ -32,7 +32,7 @@ export class QuizServiceClient {
   }
 
   findSubmissionById(submissionId) {
-    return fetch(this.URL + '/quiz/submissions/' + submissionId)
+    return fetch(this.URL + '/submissions/' + submissionId)
       .then(response => response.json());
   }
 
