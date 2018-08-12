@@ -1,20 +1,20 @@
 <div *ngIf="makeReadOnly">
 <label>
-  <input (click)="selected(true)"
-         name="{{question._id}}"
+  <input name="{{question._id}}"
          type="radio"
          disabled
-         checked="markAnswer(true)">
-  True
+         value="true"
+         [(ngModel)] = "answer">
+  true
 </label>
 <br/>
 <label>
-  <input (click)="selected(false)"
-         name="{{question._id}}"
+  <input name="{{question._id}}"
          type="radio"
-         disabled=true
-         checked="markAnswer(true)">
-  False
+         disabled
+         value="false"
+         [(ngModel)] = "answer">
+  false
 </label>
 </div>
 

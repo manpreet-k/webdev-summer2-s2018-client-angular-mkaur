@@ -12,36 +12,17 @@ export class TrueFalseComponent implements OnInit {
   @Input() makeReadOnly;
   @Input() answer;
 
-  hide = false;
-
   constructor() { }
 
   selected = trueOrFalse => {
-    this.submission[this.question._id] = trueOrFalse;
-  }
-
-  markAnswer(optionType) {
-    if (optionType) {
-      if (this.answer) {
-        return true;
-      } else {
-        return false;
-      }
+    if (trueOrFalse) {
+      this.submission[this.question._id] = 'true';
     } else {
-      if (this.answer) {
-        return false;
-      } else {
-        return true;
-      }
+      this.submission[this.question._id] = 'false';
     }
   }
 
   ngOnInit() {
-    if (this.makeReadOnly) {
-      this.hide = false;
-    } else {
-      this.hide = true;
-    }
   }
 
 }
