@@ -1,10 +1,29 @@
-<ul class="list-group">
-  <li *ngFor="let choice of question.options"
-      class="list-group-item">
-    <label>
-      <input (click)="selected(choice)" name="{{question._id}}"
-             type="radio">
-      {{choice}}
-    </label>
-  </li>
-</ul>
+<div *ngIf="makeReadOnly">
+  <ul class="list-group">
+    <li *ngFor="let choice of question.options let i = index"
+        class="list-group-item">
+      <label>
+        <input name="{{question._id}}"
+               disabled
+               type="radio"
+               value="{{choice}}"
+               [(ngModel)] = "answer">
+        {{choice}}
+      </label>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!makeReadOnly">
+  <ul class="list-group">
+    <li *ngFor="let choice of question.options"
+        class="list-group-item">
+      <label>
+        <input (click)="selected(choice)"
+               name="{{question._id}}"
+               type="radio">
+        {{choice}}
+      </label>
+    </li>
+  </ul>
+</div>

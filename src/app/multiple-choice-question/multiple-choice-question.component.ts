@@ -9,11 +9,13 @@ export class MultipleChoiceQuestionComponent implements OnInit {
 
   @Input() question;
   @Input() submission;
+  @Input() makeReadOnly;
+  @Input() answer;
 
   constructor() { }
 
   selected = choice => {
-    this.submission[this.question._id] = this.question.options.indexOf(choice);
+    this.submission[this.question._id] = choice;
   }
 
   ngOnInit() {
