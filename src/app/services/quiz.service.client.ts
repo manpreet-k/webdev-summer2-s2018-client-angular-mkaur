@@ -31,6 +31,11 @@ export class QuizServiceClient {
       .then(response => response.json());
   }
 
+  findSubmissionById(submissionId) {
+    return fetch(this.URL + '/quiz/submissions/' + submissionId)
+      .then(response => response.json());
+  }
+
   loadSubmissionsForUser(quizId, userId) {
     return fetch(this.URL + '/' + quizId + '/submissions/' + userId)
       .then(response => response.json());
