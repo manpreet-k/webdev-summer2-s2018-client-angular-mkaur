@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {QuizServiceClient} from '../services/quiz.service.client';
+import {UserServiceClient} from '../services/user.service.client';
 
 @Component({
   selector: 'app-quiz-submissions',
@@ -10,18 +11,35 @@ import {QuizServiceClient} from '../services/quiz.service.client';
 export class QuizSubmissionsComponent implements OnInit {
 
   constructor(private service: QuizServiceClient,
-              private aRoute: ActivatedRoute) {
+              private aRoute: ActivatedRoute,
+              private userService: UserServiceClient,
+              private router: Router) {
     this.aRoute.params.subscribe(params =>
-      this.loadSubmissions(params['quizId']));
+      this.loadSubmissions(params['quizId'], params['userId']));
   }
 
   quizId = '';
+  userId = '';
   submissions = [];
+  quiz = {}
 
-  loadSubmissions(quizId) {
+  logout() {
+    this.userService
+      .logout()
+      .then(() =>
+        this.router.navigate(['login']));
+  }
+
+  loadSubmissions(quizId, userId) {
     this.quizId = quizId;
-    this.service.loadSubmissions(this.quizId)
-      .then(submissions => this.submissions = submissions);
+    this.userId = userId;
+    if (this.userId === '') {
+      this.service.loadSubmissions(this.quizId)
+        .then(submissions => this.submissions = submissions);
+    } else {
+      this.service.loadSubmissionsForUser(this.quizId, this.userId)
+        .then(submissions => this.submissions = submissions);
+    }
   }
 
   ngOnInit() {
