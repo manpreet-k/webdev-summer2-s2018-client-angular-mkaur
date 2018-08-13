@@ -21,7 +21,8 @@ export class QuizSubmissionsComponent implements OnInit {
   quizId = '';
   userId = '';
   submissions = [];
-  quiz = {}
+  quiz = {};
+  filterUsername = '';
 
   logout() {
     this.userService

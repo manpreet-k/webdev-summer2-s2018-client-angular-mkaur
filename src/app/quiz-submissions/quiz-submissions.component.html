@@ -20,10 +20,30 @@
       <th>Submitted on</th>
       <th>&nbsp;</th>
     </tr>
+    <tr>
+      <td>
+        <input [(ngModel)]="filterUsername"
+               placeholder="username"
+               class="form-control">
+      </td>
+     <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
     <tr *ngFor="let submission of submissions">
-      <td>{{submission.username}}</td>
-      <td>{{submission.updatedAt}}</td>
-      <td><a routerLink="/quiz/{{submission.quizId}}/submission/{{submission._id}}">View Answers</a></td>
+      <td *ngIf="filterUsername !== '' && filterUsername === submission.username">{{submission.username}}</td>
+      <td *ngIf="filterUsername !== '' && filterUsername === submission.username">{{submission.updatedAt}}</td>
+      <td *ngIf="filterUsername !== '' && filterUsername === submission.username">
+        <a routerLink="/quiz/{{submission.quizId}}/submission/{{submission._id}}">
+          View Answers
+        </a>
+      </td>
+      <td *ngIf="filterUsername === ''">{{submission.username}}</td>
+      <td *ngIf="filterUsername === ''">{{submission.updatedAt}}</td>
+      <td *ngIf="filterUsername === ''">
+        <a routerLink="/quiz/{{submission.quizId}}/submission/{{submission._id}}">
+          View Answers
+        </a>
+      </td>
     </tr>
   </table>
 </div>
