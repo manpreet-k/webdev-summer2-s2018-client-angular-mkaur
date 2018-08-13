@@ -46,7 +46,8 @@
 
         <app-essay-question
           [question]="question"
-          [submission]="submission"
+          [makeReadOnly] = true
+          [answer] = answers[question._id]
           *ngSwitchCase="'essay'">
         </app-essay-question>
 

@@ -21,7 +21,7 @@ export class QuizServiceClient {
       username: username,
       answers: quiz
     };
-    return fetch(this.URL + '/' + quizId, {
+    return fetch(this.URL + '/' + quizId + '/submission', {
       method: 'post',
       body: JSON.stringify(quizSubmission),
       headers: {
@@ -31,8 +31,8 @@ export class QuizServiceClient {
       .then(response => response.json());
   }
 
-  findSubmissionById(submissionId) {
-    return fetch(this.URL + '/submissions/' + submissionId)
+  findSubmissionById(quizId, submissionId) {
+    return fetch(this.URL + '/quiz' + quizId + '/submission/' + submissionId)
       .then(response => response.json());
   }
 
@@ -42,7 +42,7 @@ export class QuizServiceClient {
   }
 
   loadSubmissions(quizId) {
-    return fetch(this.URL + '/' + quizId + '/submissions')
+    return fetch(this.URL + '/' + quizId + '/submission')
       .then(response => response.json());
   }
 }

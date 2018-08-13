@@ -30,7 +30,7 @@ export class QuizAnswersComponent implements OnInit {
     this.submissionId = submissionId;
 
     this.service
-      .findSubmissionById(this.submissionId)
+      .findSubmissionById(this.quizId, this.submissionId)
       .then(sub => {
         this.submission = sub;
         this.answers = sub.answers;

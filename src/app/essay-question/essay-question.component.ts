@@ -9,6 +9,8 @@ export class EssayQuestionComponent implements OnInit {
 
   @Input() question;
   @Input() submission;
+  @Input() makeReadOnly;
+  @Input() answer;
 
   constructor() { }
 
