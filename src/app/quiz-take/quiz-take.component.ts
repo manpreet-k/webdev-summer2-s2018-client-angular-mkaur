@@ -46,7 +46,11 @@ export class QuizTakeComponent implements OnInit {
         } else {
           this.service
             .submitQuiz(submission, this.quizId, user.username)
-            .then(quizsubmission => console.log(quizsubmission))  ;
+            .then(quizsubmission => {
+              console.log(quizsubmission);
+              alert('Marks scored = ' + quizsubmission.grade);
+              this.router.navigate(['quizzes']);
+            });
         }
       });
   }
