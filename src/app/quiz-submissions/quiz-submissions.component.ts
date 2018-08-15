@@ -15,11 +15,10 @@ export class QuizSubmissionsComponent implements OnInit {
               private userService: UserServiceClient,
               private router: Router) {
     this.aRoute.params.subscribe(params =>
-      this.loadSubmissions(params['quizId'], params['userId']));
+      this.loadSubmissions(params['quizId']));
   }
 
   quizId = '';
-  userId = '';
   submissions = [];
   quiz = {};
   filterUsername = '';
@@ -31,9 +30,8 @@ export class QuizSubmissionsComponent implements OnInit {
         this.router.navigate(['login']));
   }
 
-  loadSubmissions(quizId, userId) {
+  loadSubmissions(quizId) {
     this.quizId = quizId;
-    this.userId = userId;
     this.userService
       .currentUser()
       .then(user => {
