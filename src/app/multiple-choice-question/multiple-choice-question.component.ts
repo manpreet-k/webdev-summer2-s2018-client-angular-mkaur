@@ -19,6 +19,9 @@ export class MultipleChoiceQuestionComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.submission !== undefined) {
+      this.submission[this.question._id] = '';
+    }
   }
 
 }
