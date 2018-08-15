@@ -1,13 +1,15 @@
 <div class="container-fluid">
   <div class="row wbdv-margin-padding">
-    <h1 class="col-9">
+    <h1 class="col-8">
       White Board
     </h1>
+    <button class="col-1 btn-sm btn-success"
+            routerLink="/quizzes">Quizzes</button>
+    &nbsp;
     <button *ngIf="loggedInUserId === ''" class="col-1 btn-sm btn-outline-secondary"
        routerLink="/login">Login</button>
     <button *ngIf="loggedInUserId !== ''" class="col-1 btn-sm btn-outline-secondary"
             routerLink="/profile">Profile</button>
-    &nbsp;
     &nbsp;
     <button *ngIf="loggedInUserId === ''" class="col-1 btn-sm btn-outline-secondary"
        routerLink="/register">Register</button>
