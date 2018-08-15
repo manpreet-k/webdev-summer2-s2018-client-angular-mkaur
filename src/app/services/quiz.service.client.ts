@@ -3,7 +3,8 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class QuizServiceClient {
 
-  URL = 'http://localhost:3000/api/quiz';
+  // URL = 'http://localhost:3000/api/quiz';
+  URL = 'https://wbdv-smr2-server-node-mkaur.herokuapp.com/';
 
   findAllQuizzes() {
     return fetch(this.URL)
