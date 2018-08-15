@@ -19,11 +19,9 @@ export class QuizTakeComponent implements OnInit {
       .subscribe(params => this.loadQuiz(params['quizId']));
   }
 
-  quizId = ''
-  quiz = {};
-  submission = {
-    'answers': {}
-  }
+  quizId = '';
+  quiz: any = {};
+  submission = {};
 
   loadQuiz(quizId) {
     this.quizId = quizId;
