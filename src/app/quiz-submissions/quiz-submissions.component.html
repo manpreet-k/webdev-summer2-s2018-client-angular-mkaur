@@ -36,17 +36,17 @@
       <td>&nbsp;</td>
     </tr>
     <tr *ngFor="let submission of submissions">
-      <td *ngIf="filterUsername !== '' && filterUsername === submission.username">{{submission.username}}</td>
-      <td *ngIf="filterUsername !== '' && filterUsername === submission.username">{{submission.updatedAt}}</td>
-      <td *ngIf="filterUsername !== '' && filterUsername === submission.username">
+      <td *ngIf="filterUsername !== '' && filterUsername === submission.student.username">{{submission.student.username}}</td>
+      <td *ngIf="filterUsername !== '' && filterUsername === submission.student.username">{{submission.updatedAt}}</td>
+      <td *ngIf="filterUsername !== '' && filterUsername === submission.student.username">
         <a routerLink="/quiz/{{submission.quizId}}/submission/{{submission._id}}">
           View Answers
         </a>
       </td>
-      <td *ngIf="filterUsername === ''">{{submission.username}}</td>
+      <td *ngIf="filterUsername === ''">{{submission.student.username}}</td>
       <td *ngIf="filterUsername === ''">{{submission.updatedAt}}</td>
       <td *ngIf="filterUsername === ''">
-        <a routerLink="/quiz/{{submission.quizId}}/submission/{{submission._id}}">
+        <a routerLink="/quiz/{{submission.quiz}}/submission/{{submission._id}}">
           View Answers
         </a>
       </td>

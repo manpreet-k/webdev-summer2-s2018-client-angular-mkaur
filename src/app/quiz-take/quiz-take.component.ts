@@ -21,7 +21,9 @@ export class QuizTakeComponent implements OnInit {
 
   quizId = ''
   quiz = {};
-  submission = {}
+  submission = {
+    'answers': {}
+  }
 
   loadQuiz(quizId) {
     this.quizId = quizId;
@@ -45,7 +47,7 @@ export class QuizTakeComponent implements OnInit {
           this.router.navigate(['login']);
         } else {
           this.service
-            .submitQuiz(submission, this.quizId, user.username)
+            .submitQuiz(submission, this.quiz, this.quizId, user._id)
             .then(quizsubmission => {
               console.log(quizsubmission);
               alert('Marks scored = ' + quizsubmission.grade);

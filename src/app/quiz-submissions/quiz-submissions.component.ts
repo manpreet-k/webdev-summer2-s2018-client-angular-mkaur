@@ -34,13 +34,22 @@ export class QuizSubmissionsComponent implements OnInit {
   loadSubmissions(quizId, userId) {
     this.quizId = quizId;
     this.userId = userId;
-    if (this.userId === '') {
-      this.service.loadSubmissions(this.quizId)
-        .then(submissions => this.submissions = submissions);
-    } else {
-      this.service.loadSubmissionsForUser(this.quizId, this.userId)
-        .then(submissions => this.submissions = submissions);
-    }
+    this.userService
+      .currentUser()
+      .then(user => {
+        if (user === null) {
+          alert('Session timed out');
+          this.router.navigate(['login']);
+        } else {
+          if (user.isadmin === '1') {
+            this.service.loadSubmissions(this.quizId)
+              .then(submissions => this.submissions = submissions);
+          } else {
+            this.service.loadSubmissionsForUser(this.quizId, user._id)
+              .then(submissions => this.submissions = submissions);
+          }
+        }
+      });
   }
 
   ngOnInit() {

@@ -25,7 +25,7 @@
            href="/login">
           Take
         </a>
-        <a *ngIf="loggedInUsername !== ''"
+        <a *ngIf="loggedInUsername !== '' && isAdmin !== '1'"
            class="btn btn-success"
            href="/quiz/{{quiz._id}}">
           Take

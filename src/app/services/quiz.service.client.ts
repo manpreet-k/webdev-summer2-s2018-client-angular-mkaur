@@ -15,11 +15,11 @@ export class QuizServiceClient {
       .then(response => response.json());
   }
 
-  submitQuiz(quiz, quizId, username) {
+  submitQuiz(submission, quiz, quizId, studentId) {
     const quizSubmission = {
-      quizId: quizId,
-      username: username,
-      answers: quiz
+      quiz: quiz,
+      student: studentId,
+      answers: submission
     };
     return fetch(this.URL + '/' + quizId + '/submission', {
       method: 'post',
