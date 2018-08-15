@@ -24,6 +24,15 @@ import { AdminComponent } from './admin/admin.component';
 import { SectionViewerComponent } from './section-viewer/section-viewer.component';
 import {SectionServiceClient} from './services/section.service.client';
 import { SectionListComponent } from './section-list/section-list.component';
+import { QuizListComponent } from './quiz-list/quiz-list.component';
+import {QuizServiceClient} from './services/quiz.service.client';
+import { QuizTakeComponent } from './quiz-take/quiz-take.component';
+import { FillBlanksQuestionComponent } from './fill-blanks-question/fill-blanks-question.component';
+import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
+import { TrueFalseComponent } from './true-false/true-false.component';
+import { EssayQuestionComponent } from './essay-question/essay-question.component';
+import { QuizSubmissionsComponent } from './quiz-submissions/quiz-submissions.component';
+import { QuizAnswersComponent } from './quiz-answers/quiz-answers.component';
 
 
 @NgModule({
@@ -41,7 +50,15 @@ import { SectionListComponent } from './section-list/section-list.component';
     ProfileComponent,
     AdminComponent,
     SectionViewerComponent,
-    SectionListComponent
+    SectionListComponent,
+    QuizListComponent,
+    QuizTakeComponent,
+    FillBlanksQuestionComponent,
+    MultipleChoiceQuestionComponent,
+    TrueFalseComponent,
+    EssayQuestionComponent,
+    QuizSubmissionsComponent,
+    QuizAnswersComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +73,8 @@ import { SectionListComponent } from './section-list/section-list.component';
     TopicServiceClient,
     WidgetServiceClient,
     UserServiceClient,
-    SectionServiceClient
+    SectionServiceClient,
+    QuizServiceClient
   ],
   bootstrap: [AppComponent]
 

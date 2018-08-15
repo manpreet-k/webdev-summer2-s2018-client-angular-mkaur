@@ -1,0 +1,22 @@
+<div *ngIf="makeReadOnly">
+<span [ngSwitch]="blank.indexOf('*')" *ngFor="let blank of question.blanks">
+  <span *ngSwitchCase="-1"
+        class="wbdv-line-breaker">{{blank}}</span>
+  <span *ngSwitchCase="0">
+    <input class="wbdv-blank-style"
+           disabled
+           value="{{answer[blank.split('=')[0].replace('*','')]}}">
+  </span>
+</span>
+</div>
+<div *ngIf="!makeReadOnly">
+<span [ngSwitch]="blank.indexOf('*')" *ngFor="let blank of question.blanks">
+  <span *ngSwitchCase="-1"
+        class="wbdv-line-breaker">{{blank}}</span>
+  <span *ngSwitchCase="0">
+    <input [(ngModel)]="this.submission[this.question._id][blank.split('=')[0].replace('*','')]"
+           placeholder="{{blank.split('=')[0].replace('*','')}}"
+           class="wbdv-blank-style">
+  </span>
+</span>
+</div>

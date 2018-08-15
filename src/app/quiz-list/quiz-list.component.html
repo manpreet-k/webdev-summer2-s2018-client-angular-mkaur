@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row wbdv-margin-padding">
+    <h1 class="col-11">Quizzes</h1>
+    <div class="col-1">
+      <button class="btn btn-info"
+              routerLink="/home">
+        <i class="fa fa-home"></i>
+      </button>
+      &nbsp;
+      <button class="btn btn-danger"
+              (click)="logout()">
+        <i class="fa fa-power-off"></i>
+      </button>
+    </div>
+  </div>
+
+  <ul class="list-group">
+    <li *ngFor="let quiz of quizzes"
+        class="list-group-item">
+      {{quiz.name}}
+
+      <div class="float-right">
+        <a *ngIf="loggedInUsername === ''"
+           class="btn btn-success"
+           href="/login">
+          Take
+        </a>
+        <a *ngIf="loggedInUsername !== '' && isAdmin !== '1'"
+           class="btn btn-success"
+           href="/quiz/{{quiz._id}}">
+          Take
+        </a>
+        &nbsp;
+        <a *ngIf="loggedInUsername !== ''"
+           class="btn btn-dark"
+           href="/quiz/{{quiz._id}}/submissions">
+          Submissions
+        </a>
+
+      </div>
+    </li>
+  </ul>
+</div>

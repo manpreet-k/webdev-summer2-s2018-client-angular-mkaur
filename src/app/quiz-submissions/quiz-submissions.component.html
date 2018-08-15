@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row wbdv-margin-padding">
+    <h1 class="col-10">Submissions</h1>
+    <div class="col-2">
+      <button class="btn btn-success"
+              routerLink="/quizzes">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      &nbsp;
+      <button class="btn btn-info"
+              routerLink="/home">
+        <i class="fa fa-home"></i>
+      </button>
+      &nbsp;
+      <button class="btn btn-danger"
+              (click)="logout()">
+        <i class="fa fa-power-off"></i>
+      </button>
+    </div>
+  </div>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Username</th>
+      <th>Submitted on</th>
+      <th>&nbsp;</th>
+    </tr>
+    <tr>
+      <td>
+        <input [(ngModel)]="filterUsername"
+               placeholder="username"
+               class="form-control">
+      </td>
+     <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr *ngFor="let submission of submissions">
+      <td *ngIf="filterUsername !== '' && filterUsername === submission.student.username">{{submission.student.username}}</td>
+      <td *ngIf="filterUsername !== '' && filterUsername === submission.student.username">{{submission.updatedAt}}</td>
+      <td *ngIf="filterUsername !== '' && filterUsername === submission.student.username">
+        <a routerLink="/quiz/{{submission.quizId}}/submission/{{submission._id}}">
+          View Answers
+        </a>
+      </td>
+      <td *ngIf="filterUsername === ''">{{submission.student.username}}</td>
+      <td *ngIf="filterUsername === ''">{{submission.updatedAt}}</td>
+      <td *ngIf="filterUsername === ''">
+        <a routerLink="/quiz/{{submission.quiz}}/submission/{{submission._id}}">
+          View Answers
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,12 @@
+<div *ngIf="makeReadOnly">
+  <textarea disabled
+            [(ngModel)]="answer"
+            class="form-control">
+  </textarea>
+</div>
+
+<div *ngIf="!makeReadOnly">
+  <textarea [(ngModel)]="submission[question._id]" class="form-control"></textarea>
+
+  {{submission[question._id]}}
+</div>

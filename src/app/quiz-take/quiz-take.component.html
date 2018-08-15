@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="row wbdv-margin-padding">
+    <h1 class="col-10">{{quiz.name}} </h1>
+    <div class="col-2">
+      <button class="btn btn-info"
+              routerLink="/home">
+        <i class="fa fa-home"></i>
+      </button>
+      &nbsp;
+      <button class="btn btn-danger"
+              (click)="logout()">
+        <i class="fa fa-power-off"></i>
+      </button>
+    </div>
+  </div>
+
+  <ul class="list-group">
+    <li *ngFor="let question of quiz.questions" class="list-group-item">
+      <h4>
+        {{question.title}}
+        <span class="float-right">{{question.points}}</span>
+      </h4>
+      <p>{{question.description}}</p>
+      <div [ngSwitch]="question.type">
+
+        <app-true-false
+          [question]="question"
+          [submission]="submission"
+          *ngSwitchCase="'truefalse'">
+        </app-true-false>
+
+        <app-fill-blanks-question
+          [question]="question"
+          [submission]="submission"
+          *ngSwitchCase="'fillin'">
+        </app-fill-blanks-question>
+
+        <app-multiple-choice-question
+          [question]="question"
+          [submission]="submission"
+          *ngSwitchCase="'multiplechoice'">
+        </app-multiple-choice-question>
+
+        <app-essay-question
+          [question]="question"
+          [submission]="submission"
+          *ngSwitchCase="'essay'">
+        </app-essay-question>
+
+      </div>
+    </li>
+  </ul>
+  &nbsp;
+  <div>
+    <button class="btn btn-primary"
+            routerLink="/quizzes">
+      Cancel
+    </button>
+    &nbsp;
+    <button class="btn btn-danger"
+            (click)="submit(submission)">
+      Submit
+    </button>
+  </div>
+
+</div>
