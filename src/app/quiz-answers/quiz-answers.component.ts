@@ -21,7 +21,7 @@ export class QuizAnswersComponent implements OnInit {
 
   quizId = '';
   submissionId = '';
-  quiz = {};
+  quiz: any = {};
   submission = {};
   answers = {};
 
