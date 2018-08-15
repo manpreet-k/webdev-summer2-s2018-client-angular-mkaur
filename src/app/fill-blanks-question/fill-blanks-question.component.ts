@@ -18,5 +18,11 @@ export class FillBlanksQuestionComponent implements OnInit {
     if (this.submission !== undefined) {
       this.submission[this.question._id] = {};
     }
+
+    if (this.makeReadOnly !== undefined && this.makeReadOnly !== false) {
+      if (this.answer === undefined) {
+        this.answer = {};
+      }
+    }
   }
 }
