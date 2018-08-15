@@ -3,8 +3,7 @@
   <span *ngSwitchCase="-1"
         class="wbdv-line-breaker">{{blank}}</span>
   <span *ngSwitchCase="0">
-    <input placeholder="{{blank.split('=')[0].replace('*','')}}"
-           class="wbdv-blank-style"
+    <input class="wbdv-blank-style"
            disabled
            value="{{answer[blank.split('=')[0].replace('*','')]}}">
   </span>
