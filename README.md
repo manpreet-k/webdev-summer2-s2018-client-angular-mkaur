@@ -1,7 +1,7 @@
 # Assignment 4
 Client implemented using Angular
 Backend server - Java for course details
-Node - User details and enrollment details
+Node - User details and enrollment details of the user
 
 
 # Deployed at (Client)
